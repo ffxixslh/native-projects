@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      #root {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-content: center;
+        overflow: auto;
+        position: relative;
+      }
+      #colors {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-content: space-between;
+        padding: 20px 0;
+        background-color: antiquewhite;
+      }
+      #skin {
+        background-color: rgb(64, 128, 0);
+      }
+      #flesh {
+        background-color: rgb(255, 128, 128);
+      }
+      #seed {
+        background-color: rgb(32, 32, 16);
+      }
+      #eraser {
+        width: 30px;
+        height: 50px;
+        border: 2px solid rgb(200, 200, 200);
+        border-radius: 5px;
+        background-color: rgb(222, 222, 222);
+        margin: 0 10px;
+        position: relative;
+      }
+      #eraser::before {
+        position: absolute;
+        content: "ES";
+        text-align: center;
+        line-height: 30px;
+        top: 50%;
+        transform: translate(0%, -50%);
+        width: 30px;
+        height: 30px;
+        background-color: rgb(96, 142, 255);
+      }
+      .round {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        margin: 0 10px;
+      }
+      .active {
+        box-shadow: 0 0 10px rgb(255, 128, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="colors">
+        <div id="skin" class="round" onclick="switchColor('skin')"></div>
+        <div
+          id="flesh"
+          class="round active"
+          onclick="switchColor('flesh')"
+        ></div>
+        <div id="seed" class="round" onclick="switchColor('seed')"></div>
+        <div id="eraser" class="" onclick="switchColor('')"></div>
+      </div>
+      <canvas id="canvas">canvas is here</canvas>
+    </div>
+  </body>
+  <script src="paint.js"></script>
+</html>
